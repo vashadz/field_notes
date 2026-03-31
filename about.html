@@ -60,55 +60,11 @@
 
     /* ── About layout ── */
     .about-wrap {
-      max-width: 760px;
+      max-width: 620px;
       margin: 0 auto;
       padding: 5rem 2rem 6rem;
-      display: grid;
-      grid-template-columns: 200px 1fr;
-      gap: 4rem;
-      align-items: start;
     }
 
-    /* ── Portrait ── 
-    .portrait-col {
-      position: sticky;
-      top: 3rem;
-    }
-
-    .portrait {
-      width: 100%;
-      aspect-ratio: 3/4;
-      background: #e0dbd2;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #aaa;
-      overflow: hidden;
-    }
-
-    /* Once you have a photo, replace the div with:
-       <img src="portrait.jpg" alt="Vasiliki Hadzikosta" style="width:100%;display:block;" />
-   
-
-    .portrait img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .portrait-caption {
-      font-size: 11px;
-      color: #aaa;
-      margin-top: 0.6rem;
-      font-style: italic;
-      line-height: 1.5;
-    }
-    
- */
     /* ── Text col ── */
     .text-col h1 {
       font-family: 'Playfair Display', Georgia, serif;
@@ -193,12 +149,7 @@
     }
 
     @media (max-width: 620px) {
-      .about-wrap {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-        padding: 3rem 2rem 4rem;
-      }
-      .portrait-col { position: static; max-width: 160px; }
+      .about-wrap { padding: 3rem 2rem 4rem; }
     }
   </style>
 </head>
@@ -208,7 +159,7 @@
     <div class="inner">
       <nav>
         <a href="index.html">Essays</a>
-        <a href="#">Archive</a>
+        <a href="archive.html">Archive</a>
         <a href="about.html" class="active">About</a>
       </nav>
       <a href="index.html" class="pub-title">The Examined Eye</a>
@@ -217,21 +168,15 @@
 
   <div class="about-wrap">
 
- /*   <div class="portrait-col">
-      <!-- Replace this div with an img tag once you have a photo -->
-      <div class="portrait">Photo</div>
-      <p class="portrait-caption">Paris &amp; Athens</p>
-    </div>
-*/
     <div class="text-col">
       <h1>Vasiliki Hadzikosta</h1>
-      <p class="location">Paris &nbsp;·&nbsp; New York</p>
+      <p class="location">Paris</p>
 
       <p>I write art criticism. My essays move between exhibitions, institutions, and the questions that linger after leaving a room, about what an artwork asks of its viewer, and what the viewer brings in return.</p>
 
       <p>The work lives here and on Instagram at <a href="https://instagram.com/behindartscenes" target="_blank" style="border-bottom: 1px solid #333; text-decoration: none;">@behindartscenes</a>, where I keep shorter notes from galleries, art fairs, and the spaces between.</p>
 
-      <p>All essays by me :).</p>
+      <p>All essays © 2025 Vasiliki Hadzikosta.</p>
 
       <div class="contact-links">
         <a href="mailto:vhadzikosta@gmail.com">
@@ -243,16 +188,9 @@
           <span class="link-value">@behindartscenes</span>
         </a>
       </div>
-    </div>
-
   </div>
 
   <footer>
     <div class="inner">
       <p class="footer-title">The Examined Eye</p>
-      <p class="footer-copy">All essays © Vasiliki Hadzikosta &nbsp;·&nbsp; Built for the love of looking</p>
-    </div>
-  </footer>
-
-</body>
-</html>
+      <p class="footer-copy
