@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Examined Eye</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'EB Garamond', Georgia, serif;
+      background: #F8F5EF;
+      color: #1a1a18;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; }
+
+    .masthead {
+      border-bottom: 1.5px solid #1a1a18;
+      padding: 2rem 0 1rem;
+      text-align: center;
+    }
+
+    .inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-family: 'EB Garamond', serif;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+
+    nav a { color: #555; text-decoration: none; }
+    nav a:hover { color: #1a1a18; }
+
+    .pub-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      line-height: 1;
+      color: #1a1a18;
+      text-decoration: none;
+      display: block;
+    }
+
+    .pub-tagline {
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #888;
+      margin-top: 0.5rem;
+      font-family: 'EB Garamond', serif;
+    }
+
+    .date-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0;
+      font-size: 11.5px;
+      letter-spacing: 0.08em;
+      color: #888;
+      border-top: 0.5px solid #ccc;
+      margin-top: 1rem;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border-bottom: 1px solid #ccc;
+      padding: 3rem 0 2.5rem;
+    }
+
+    .hero-text {
+      padding-right: 3rem;
+      border-right: 0.5px solid #ccc;
+    }
+
+    .meta {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 400;
+      line-height: 1.2;
+      color: #1a1a18;
+      margin-bottom: 1rem;
+      text-decoration: none;
+      display: block;
+    }
+
+    .hero-title:hover { opacity: 0.65; }
+
+    .hero-deck {
+      font-size: 1.05rem;
+      color: #444;
+      line-height: 1.65;
+      margin-bottom: 1.25rem;
+    }
+
+    .read-link {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #1a1a18;
+      text-decoration: none;
+      border-bottom: 1px solid #1a1a18;
+      padding-bottom: 1px;
+    }
+
+    .read-link:hover { opacity: 0.5; }
+
+    .hero-image {
+      padding-left: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .img-placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: #e0dbd2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #aaa;
+    }
+
+    .img-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .img-caption {
+      font-size: 12px;
+      color: #999;
+      margin-top: 0.5rem;
+      font-style: italic;
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 2rem 0 1.5rem;
+    }
+
+    .section-label span {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #888;
+      white-space: nowrap;
+    }
+
+    .section-label::before,
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 0.5px;
+      background: #ccc;
+    }
+
+    /* ── Archive grid ── */
+    .archive {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .archive-item {
+      padding: 1.5rem 1.5rem 1.5rem 0;
+      border-right: 0.5px solid #ccc;
+      border-bottom: 0.5px solid #ccc;
+    }
+
+    .archive-item:nth-child(3n) {
+      border-right: none;
+      padding-right: 0;
+      padding-left: 1.5rem;
+    }
+
+    .archive-item:nth-child(3n+2) {
+      padding-left: 1.5rem;
+    }
+
+    .archive-item:nth-last-child(-n+3) {
+      border-bottom: none;
+    }
+
+    .arc-cat {
+      font-size: 10.5px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 0.5rem;
+    }
+
+    .arc-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      line-height: 1.3;
+      color: #1a1a18;
+      margin-bottom: 0.5rem;
+      text-decoration: none;
+      display: block;
+    }
+
+    .arc-title:hover { opacity: 0.6; }
+
+    .arc-excerpt {
+      font-size: 0.9rem;
+      color: #666;
+      line-height: 1.55;
+      margin-bottom: 0.75rem;
+    }
+
+    .arc-byline {
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      color: #aaa;
+    }
+
+    footer {
+      border-top: 1.5px solid #1a1a18;
+      margin-top: 3rem;
+      padding: 1.5rem 0 2rem;
+      text-align: center;
+    }
+
+    .footer-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: #1a1a18;
+      margin-bottom: 0.25rem;
+    }
+
+    .footer-copy {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: #aaa;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 680px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-text { padding-right: 0; border-right: none; border-bottom: 0.5px solid #ccc; padding-bottom: 2rem; }
+      .hero-image { padding-left: 0; padding-top: 2rem; }
+      .archive { grid-template-columns: 1fr; }
+      .archive-item { border-right: none !important; padding: 1.25rem 0 !important; }
+      .archive-item:nth-last-child(-n+3) { border-bottom: 0.5px solid #ccc; }
+      .archive-item:last-child { border-bottom: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="masthead">
+    <div class="inner">
+      <nav>
+        <a href="#">Essays</a>
+        <a href="#">Archive</a>
+        <a href="#">About</a>
+      </nav>
+      <a href="index.html" class="pub-title">The Examined Eye</a>
+      <p class="pub-tagline">Criticism &amp; Commentary on the Visual Arts</p>
+      <div class="date-bar">
+        <span>Vasiliki Hadzikosta</span>
+        <span>Spring 2026</span>
+        <span>Independent</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="inner">
+
+    <section class="hero">
+      <div class="hero-text">
+        <p class="meta">Latest Essay &nbsp;·&nbsp; Photography</p>
+        <a href="essays/tillmans.html" class="hero-title">Nothing Fixed, Everything in Motion: Wolfgang Tillmans between MoMA and the Pompidou</a>
+        <p class="hero-deck">Two cities, two temperatures, one artist. A comparison of Tillmans's retrospective at MoMA and his carte blanche at the Centre Pompidou — and what the difference between them reveals about the ethics of looking.</p>
+        <a href="essays/tillmans.html" class="read-link">Read the essay</a>
+      </div>
+      <div class="hero-image">
+        <div class="img-placeholder">Image</div>
+        <p class="img-caption">Wolfgang Tillmans, <em>Freischwimmer</em> series. Centre Pompidou, 2025.</p>
+      </div>
+    </section>
+
+    <div class="section-label"><span>All Essays</span></div>
+
+    <section class="archive">
+
+      <article class="archive-item">
+        <p class="arc-cat">Essay &nbsp;·&nbsp; Contemporary Art</p>
+        <a href="essays/gonzalez-torres.html" class="arc-title">To Pile or Not to Pile: Reconfiguring the Art of Felix González-Torres</a>
+        <p class="arc-excerpt">On candy piles, flexible instructions, and the question of whether a different configuration of grief can still be grief.</p>
+        <p class="arc-byline">2025</p>
+      </article>
+
+      <article class="archive-item">
+        <p class="arc-cat">Exhibition Review &nbsp;·&nbsp; Photography</p>
+        <a href="essays/tillmans.html" class="arc-title">Nothing Fixed, Everything in Motion</a>
+        <p class="arc-excerpt">Wolfgang Tillmans between MoMA and the Pompidou — two cities, two temperatures, one artist.</p>
+        <p class="arc-byline">2026</p>
+      </article>
+
+      <!-- Add new essays here following the same pattern -->
+
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="inner">
+      <p class="footer-title">The Examined Eye</p>
+      <p class="footer-copy">All essays © Vasiliki Hadzikosta &nbsp;·&nbsp; Built for the love of looking</p>
+    </div>
+  </footer>
+
+</body>
+</html>
